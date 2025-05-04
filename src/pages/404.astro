@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Página no encontrada | B2B Connect">
+  <Header />
+  
+  <main class="pt-32 pb-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+        <div class="text-blue-600 mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" 
+              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">404</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-4">Página no encontrada</h2>
+        
+        <p class="text-xl text-gray-600 mb-8 max-w-lg">
+          Lo sentimos, pero la página que buscas no existe o ha sido movida.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center">
+          <a href="/" class="px-8 py-4 bg-blue-600 text-white font-medium rounded-lg transition-colors shadow-md hover:bg-blue-700 flex-1 text-center">
+            Volver al Inicio
+          </a>
+          <a href="#contact" class="px-8 py-4 bg-white border border-blue-600 text-blue-600 font-medium rounded-lg transition-colors hover:bg-blue-50 flex-1 text-center">
+            Contactar Soporte
+          </a>
+        </div>
+        
+        <div class="mt-16">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">¿Buscas algo específico?</h3>
+          <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center">
+            <a href="#services" class="px-2 py-1 text-gray-700 hover:text-blue-600 transition-colors">
+              Servicios
+            </a>
+            <a href="#how-it-works" class="px-2 py-1 text-gray-700 hover:text-blue-600 transition-colors">
+              Cómo Funciona
+            </a>
+            <a href="#testimonials" class="px-2 py-1 text-gray-700 hover:text-blue-600 transition-colors">
+              Testimonios
+            </a>
+            <a href="/register" class="px-2 py-1 text-gray-700 hover:text-blue-600 transition-colors">
+              Registro
+            </a>
+            <a href="/login" class="px-2 py-1 text-gray-700 hover:text-blue-600 transition-colors">
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

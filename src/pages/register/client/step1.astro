@@ -1,0 +1,162 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+// Lista de rubros disponibles
+const industries = [
+  { id: "tech", name: "Tecnología", icon: "computer" },
+  { id: "food", name: "Alimentación", icon: "restaurant" },
+  { id: "construction", name: "Construcción", icon: "construction" },
+  { id: "transport", name: "Transporte", icon: "local_shipping" },
+  { id: "health", name: "Salud", icon: "medical_services" },
+  { id: "education", name: "Educación", icon: "school" },
+  { id: "retail", name: "Comercio Minorista", icon: "store" },
+  { id: "manufacturing", name: "Manufactura", icon: "precision_manufacturing" },
+  { id: "finance", name: "Finanzas", icon: "attach_money" },
+  { id: "energy", name: "Energía", icon: "bolt" },
+  { id: "agriculture", name: "Agricultura", icon: "agriculture" },
+  { id: "entertainment", name: "Entretenimiento", icon: "sports_esports" }
+];
+---
+
+<Layout title="Selecciona tus rubros | Registro Cliente B2B Connect">
+  <Header />
+  
+  <main class="pt-32 pb-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Indicador de progreso -->
+        <div class="mb-12">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                1
+              </div>
+              <div class="ml-3 text-blue-600 font-semibold">Rubros</div>
+            </div>
+            <div class="flex-grow mx-4 h-1 bg-gray-200"></div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold">
+                2
+              </div>
+              <div class="ml-3 text-gray-500">Alcance</div>
+            </div>
+            <div class="flex-grow mx-4 h-1 bg-gray-200"></div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold">
+                3
+              </div>
+              <div class="ml-3 text-gray-500">Resultados</div>
+            </div>
+          </div>
+        </div>
+        
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+          ¿Qué tipo de proveedores estás buscando?
+        </h1>
+        
+        <p class="text-gray-600 text-lg mb-8 text-center">
+          Selecciona los rubros en los que estás interesado para que podamos encontrar los mejores proveedores para tu negocio.
+        </p>
+        
+        <form id="industries-form" class="mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {industries.map(industry => (
+              <label class="bg-white border border-gray-200 rounded-lg p-4 flex items-center cursor-pointer hover:shadow-md transition-shadow industry-card">
+                <input 
+                  type="checkbox" 
+                  name="industries" 
+                  value={industry.id} 
+                  class="hidden industry-checkbox"
+                >
+                <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
+                  <span class="material-symbols-outlined">
+                    {industry.icon}
+                  </span>
+                </div>
+                <span class="text-gray-800 flex-grow">{industry.name}</span>
+                <span class="checkmark ml-auto opacity-0 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              </label>
+            ))}
+          </div>
+          
+          <div class="text-center mt-12">
+            <button 
+              id="next-button" 
+              type="button" 
+              disabled
+              class="px-8 py-4 bg-blue-600 text-white font-medium rounded-lg transition-colors shadow-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Continuar
+            </button>
+            <p class="text-sm text-gray-500 mt-3" id="selection-message">
+              Selecciona al menos un rubro para continuar
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Añadir fuente Material Icons
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!document.querySelector('link[href*="Material+Symbols+Outlined"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+      document.head.appendChild(link);
+    }
+
+    const form = document.getElementById('industries-form');
+    const nextButton = document.getElementById('next-button');
+    const selectionMessage = document.getElementById('selection-message');
+    const checkboxes = document.querySelectorAll('.industry-checkbox');
+    
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const card = checkbox.closest('.industry-card');
+        const checkmark = card.querySelector('.checkmark');
+        
+        if (checkbox.checked) {
+          card.classList.add('border-blue-500', 'bg-blue-50');
+          checkmark.classList.remove('opacity-0');
+        } else {
+          card.classList.remove('border-blue-500', 'bg-blue-50');
+          checkmark.classList.add('opacity-0');
+        }
+        
+        // Actualizar el estado del botón
+        const selectedCount = document.querySelectorAll('.industry-checkbox:checked').length;
+        nextButton.disabled = selectedCount === 0;
+        
+        if (selectedCount === 0) {
+          selectionMessage.textContent = 'Selecciona al menos un rubro para continuar';
+        } else if (selectedCount === 1) {
+          selectionMessage.textContent = '1 rubro seleccionado';
+        } else {
+          selectionMessage.textContent = `${selectedCount} rubros seleccionados`;
+        }
+      });
+    });
+    
+    nextButton.addEventListener('click', () => {
+      const selectedIndustries = Array.from(document.querySelectorAll('.industry-checkbox:checked'))
+        .map(checkbox => checkbox.value);
+      
+      // Guardar selecciones en sessionStorage
+      sessionStorage.setItem('selectedIndustries', JSON.stringify(selectedIndustries));
+      
+      // Redirigir al siguiente paso
+      window.location.href = '/register/client/step2';
+    });
+  });
+</script>
