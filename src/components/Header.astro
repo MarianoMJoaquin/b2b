@@ -1,0 +1,54 @@
+---
+---
+
+<header class="fixed w-full bg-white z-50 shadow-sm py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/" class="text-2xl font-bold text-blue-700">
+          <span class="text-blue-500">B2B</span>
+        </a>
+      </div>
+      
+      <nav class="hidden lg:flex space-x-8">
+        <a href="#services" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Servicios</a>
+        <a href="#how-it-works" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Cómo Funciona</a>
+        <a href="#testimonials" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Testimonios</a>
+        <a href="#contact" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Contacto</a>
+      </nav>
+      
+      <div class="flex items-center space-x-4">
+        <a href="/login" class="hidden sm:inline-block px-4 py-2 font-medium text-blue-600 hover:text-blue-800 transition-colors">
+          Iniciar Sesión
+        </a>
+        <a href="/register" class="px-4 py-2 font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm">
+          Registrarse
+        </a>
+        
+        <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t shadow-md">
+      <nav class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <a href="#services" class="font-medium text-gray-600 hover:text-blue-600 transition-colors py-2">Servicios</a>
+        <a href="#how-it-works" class="font-medium text-gray-600 hover:text-blue-600 transition-colors py-2">Cómo Funciona</a>
+        <a href="#testimonials" class="font-medium text-gray-600 hover:text-blue-600 transition-colors py-2">Testimonios</a>
+        <a href="#contact" class="font-medium text-gray-600 hover:text-blue-600 transition-colors py-2">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
