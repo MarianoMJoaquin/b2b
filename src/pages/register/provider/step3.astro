@@ -4,7 +4,7 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 ---
 
-<Layout title="Selecciona tus clientes objetivo | Registro Proveedor B2B Connect">
+<Layout title="Perfil de cliente ideal | Registro Proveedor B2B Connect">
   <Header />
   
   <main class="pt-32 pb-20 bg-white">
@@ -17,7 +17,7 @@ import Footer from '../../../components/Footer.astro';
               <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 ✓
               </div>
-              <div class="ml-3 text-blue-600 font-semibold">Rubros</div>
+              <div class="ml-3 text-blue-600 font-semibold">Servicios</div>
             </div>
             <div class="flex-grow mx-4 h-1 bg-blue-600"></div>
             <div class="flex items-center">
@@ -31,128 +31,135 @@ import Footer from '../../../components/Footer.astro';
               <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 3
               </div>
-              <div class="ml-3 text-blue-600 font-semibold">Clientes</div>
+              <div class="ml-3 text-blue-600 font-semibold">Perfil Cliente</div>
             </div>
           </div>
         </div>
         
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-          ¿Con qué tipo de clientes trabajas?
+          ¿Qué clientes buscas?
         </h1>
         
         <p class="text-gray-600 text-lg mb-8 text-center">
-          Selecciona los perfiles de empresas que más se ajustan a tus clientes ideales.
+          Ayúdanos a encontrar los clientes ideales para tu negocio seleccionando sus características.
         </p>
         
-        <div class="space-y-6 mb-12">
-          <!-- Tamaño de empresa -->
-          <div class="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Tamaño de empresas</h3>
-            <p class="text-gray-600 mb-5">Selecciona los tamaños de empresa a los que ofreces tus servicios (selecciona todos los que apliquen)</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer company-size-option">
-                <input type="checkbox" name="company_size" value="micro" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Micro (1-10)</span>
-              </label>
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-200 mb-10">
+          <form id="client-profile-form">
+            <div class="space-y-8">
+              <!-- Tamaño de empresa -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Tamaño de las empresas</h3>
+                <p class="text-sm text-gray-600 mb-4">Selecciona todos los que apliquen</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="size" value="micro" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Micro (1-10 empleados)</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="size" value="small" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Pequeña (11-50 empleados)</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="size" value="medium" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Mediana (51-250 empleados)</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="size" value="large" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Grande (250+ empleados)</span>
+                  </label>
+                </div>
+              </div>
               
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer company-size-option">
-                <input type="checkbox" name="company_size" value="small" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Pequeña (11-50)</span>
-              </label>
+              <!-- Presupuesto -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Rango de presupuesto</h3>
+                <p class="text-sm text-gray-600 mb-4">Selecciona todos los que apliquen</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="budget" value="small" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Menos de 1.000€</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="budget" value="medium" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">1.000€ - 10.000€</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="budget" value="large" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">10.000€ - 50.000€</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="budget" value="enterprise" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Más de 50.000€</span>
+                  </label>
+                </div>
+              </div>
               
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer company-size-option">
-                <input type="checkbox" name="company_size" value="medium" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Mediana (51-250)</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer company-size-option">
-                <input type="checkbox" name="company_size" value="large" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Grande (250+)</span>
-              </label>
+              <!-- Industrias -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Industrias objetivo</h3>
+                <p class="text-sm text-gray-600 mb-4">Selecciona las industrias de tus clientes ideales</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="tech" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Tecnología</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="health" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Salud</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="education" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Educación</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="finance" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Finanzas</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="retail" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Comercio</span>
+                  </label>
+                  
+                  <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                    <input type="checkbox" name="industry" value="manufacturing" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700">Manufactura</span>
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <!-- Sectores de interés -->
-          <div class="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Sectores de interés</h3>
-            <p class="text-gray-600 mb-5">Selecciona los sectores en los que operan tus clientes ideales (selecciona todos los que apliquen)</p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="tech" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Tecnología</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="manufacturing" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Manufactura</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="health" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Salud</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="financial" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Servicios financieros</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="retail" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Comercio minorista</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer sector-option">
-                <input type="checkbox" name="sectors" value="education" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Educación</span>
-              </label>
+            <div class="text-center mt-12">
+              <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/register/provider/step2" class="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg transition-colors hover:bg-blue-50">
+                  Atrás
+                </a>
+                <button 
+                  id="next-button" 
+                  type="submit" 
+                  class="px-8 py-4 bg-blue-600 text-white font-medium rounded-lg transition-colors shadow-md hover:bg-blue-700"
+                >
+                  Ver resultados
+                </button>
+              </div>
+              <p class="text-sm text-gray-500 mt-3">
+                Puedes continuar sin seleccionar filtros y verás todos los clientes potenciales
+              </p>
             </div>
-          </div>
-          
-          <!-- Presupuesto estimado -->
-          <div class="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Presupuesto mínimo</h3>
-            <p class="text-gray-600 mb-5">Indica el presupuesto mínimo que manejas para tus servicios</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer budget-option">
-                <input type="radio" name="budget" value="small" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Menos de 1.000€</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer budget-option">
-                <input type="radio" name="budget" value="medium" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>1.000€ - 10.000€</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer budget-option">
-                <input type="radio" name="budget" value="large" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>10.000€ - 50.000€</span>
-              </label>
-              
-              <label class="flex items-center space-x-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer budget-option">
-                <input type="radio" name="budget" value="enterprise" class="h-5 w-5 text-blue-600 focus:ring-blue-500">
-                <span>Más de 50.000€</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center mt-12">
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/register/provider/step2" class="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg transition-colors hover:bg-blue-50">
-              Atrás
-            </a>
-            <button 
-              id="finish-button" 
-              type="button"
-              class="px-8 py-4 bg-blue-600 text-white font-medium rounded-lg transition-colors shadow-md hover:bg-blue-700"
-            >
-              Buscar Clientes Potenciales
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -163,82 +170,35 @@ import Footer from '../../../components/Footer.astro';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Verificar que el usuario viene del flujo correcto
-    const providerData = sessionStorage.getItem('providerData');
-    const providerIndustries = sessionStorage.getItem('providerIndustries');
-    const providerLocation = sessionStorage.getItem('providerLocation');
-    
-    if (!providerData || !providerIndustries || !providerLocation) {
-      window.location.href = '/register/provider/form';
-      return;
+    // Verificar que venimos del paso anterior
+    if (!sessionStorage.getItem('selectedProviderServices') || !sessionStorage.getItem('selectedProviderLocation')) {
+      window.location.href = '/register/provider/step1';
     }
 
-    // Estilizar opciones seleccionadas
-    const companySizeOptions = document.querySelectorAll('.company-size-option');
-    const sectorOptions = document.querySelectorAll('.sector-option');
-    const budgetOptions = document.querySelectorAll('.budget-option');
+    const form = document.getElementById('client-profile-form');
     
-    companySizeOptions.forEach(option => {
-      const checkbox = option.querySelector('input[type="checkbox"]');
-      checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-          option.classList.add('border-blue-500', 'bg-blue-50');
-        } else {
-          option.classList.remove('border-blue-500', 'bg-blue-50');
-        }
-      });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Recoger datos del formulario
+      const selectedSizes = Array.from(document.querySelectorAll('input[name="size"]:checked')).map(input => input.value);
+      const selectedBudgets = Array.from(document.querySelectorAll('input[name="budget"]:checked')).map(input => input.value);
+      const selectedIndustries = Array.from(document.querySelectorAll('input[name="industry"]:checked')).map(input => input.value);
+      
+      // Guardar en sessionStorage
+      sessionStorage.setItem('targetClientSizes', JSON.stringify(selectedSizes));
+      sessionStorage.setItem('targetClientBudgets', JSON.stringify(selectedBudgets));
+      sessionStorage.setItem('targetClientIndustries', JSON.stringify(selectedIndustries));
+      
+      // Simular búsqueda
+      const nextButton = document.getElementById('next-button');
+      nextButton.disabled = true;
+      nextButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 inline-block text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Buscando...';
+      selectionMessage.textContent = 'Estamos buscando los mejores proveedores para ti...';
+      // Redirigir a la página de resultados después de un tiempo para simular búsqueda
+      setTimeout(() => {
+        window.location.href = '/register/provider/results';
+      }, 2000);
     });
-    
-    sectorOptions.forEach(option => {
-      const checkbox = option.querySelector('input[type="checkbox"]');
-      checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-          option.classList.add('border-blue-500', 'bg-blue-50');
-        } else {
-          option.classList.remove('border-blue-500', 'bg-blue-50');
-        }
-      });
-    });
-    
-    budgetOptions.forEach(option => {
-      const radio = option.querySelector('input[type="radio"]');
-      radio.addEventListener('change', () => {
-        budgetOptions.forEach(opt => {
-          opt.classList.remove('border-blue-500', 'bg-blue-50');
-        });
-        
-        if (radio.checked) {
-          option.classList.add('border-blue-500', 'bg-blue-50');
-        }
-      });
-    });
-    
-    // Manejar el botón de finalización
-    const finishButton = document.getElementById('finish-button');
-    if (finishButton) {
-      finishButton.addEventListener('click', () => {
-        // Recopilar los datos seleccionados
-        const selectedCompanySizes = Array.from(document.querySelectorAll('input[name="company_size"]:checked')).map(input => input.value);
-        const selectedSectors = Array.from(document.querySelectorAll('input[name="sectors"]:checked')).map(input => input.value);
-        const selectedBudget = document.querySelector('input[name="budget"]:checked')?.value || '';
-        
-        // Guardar las preferencias del proveedor
-        const clientPreferences = {
-          companySizes: selectedCompanySizes,
-          sectors: selectedSectors,
-          budget: selectedBudget
-        };
-        
-        sessionStorage.setItem('providerClientPreferences', JSON.stringify(clientPreferences));
-        
-        // Simular búsqueda
-        finishButton.disabled = true;
-        finishButton.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span> Buscando clientes...';
-        
-        setTimeout(() => {
-          window.location.href = '/register/provider/results';
-        }, 2000);
-      });
-    }
   });
 </script>
