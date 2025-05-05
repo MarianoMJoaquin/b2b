@@ -31,7 +31,10 @@ export default function HeroSection() {
               <div className="flex items-center">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200"></div>
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200">
+                      {/* Placeholder for company logos */}
+                      <img src={`${i}.webp`} alt={`Logo ${i}`} className="w-full h-full rounded-full bg-slate-100" />
+                    </div>
                   ))}
                 </div>
                 <span className="ml-4 text-secondary-600 font-medium">

@@ -3,8 +3,8 @@ import React from 'react';
 const steps = [
   {
     number: "01",
-    title: "Regístrate en nuestra plataforma",
-    description: "Crea una cuenta gratuita como cliente o proveedor en solo unos minutos."
+    title: "Selecciona tu perfil",
+    description: "Crea un perfil y selecciona si eres proveedor o cliente para comenzar a recibir propuestas."
   },
   {
     number: "02",
