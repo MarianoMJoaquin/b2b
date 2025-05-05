@@ -38,12 +38,18 @@
                   </svg>
                 </div>
                 <span id="user-name" class="font-medium text-gray-700 hidden sm:inline-block"></span>
+                <span id="user-type" class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded hidden sm:inline-block"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
               </button>
               
               <div class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                <div id="user-info" class="px-4 py-2 border-b border-gray-100">
+                  <p class="text-sm font-medium text-gray-900" id="dropdown-user-name"></p>
+                  <p class="text-xs text-gray-500" id="dropdown-user-email"></p>
+                </div>
+                <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Dashboard</a>
                 <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Mi perfil</a>
                 <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Configuración</a>
                 <div class="border-t border-gray-100 my-1"></div>
@@ -84,24 +90,53 @@
     // Verificar si el usuario está autenticado
     document.addEventListener('DOMContentLoaded', () => {
       const clientData = sessionStorage.getItem('clientData');
+      const providerData = sessionStorage.getItem('providerData');
+      let userData = null;
+      let userType = '';
       
       if (clientData) {
-        try {
-          const userData = JSON.parse(clientData);
+        userData = JSON.parse(clientData);
+        userType = 'Cliente';
+      } else if (providerData) {
+        userData = JSON.parse(providerData);
+        userType = userData.plan === 'free' ? 'Proveedor' : 
+                  userData.plan === 'premium' ? 'Proveedor Premium' : 'Proveedor Pro';
+      }
+      
+      if (userData) {
+        // Mostrar estado autenticado
+        document.getElementById('unauthenticated-state')?.classList.add('hidden');
+        document.getElementById('authenticated-state')?.classList.remove('hidden');
+        
+        // Mostrar nombre y tipo de usuario
+        const userNameElement = document.getElementById('user-name');
+        const userTypeElement = document.getElementById('user-type');
+        const dropdownUserName = document.getElementById('dropdown-user-name');
+        const dropdownUserEmail = document.getElementById('dropdown-user-email');
+        
+        if (userNameElement && userData.name) {
+          // Mostrar solo el primer nombre
+          const firstName = userData.name.split(' ')[0];
+          userNameElement.textContent = firstName;
+        }
+        
+        if (userTypeElement) {
+          userTypeElement.textContent = userType;
           
-          // Mostrar estado autenticado
-          document.getElementById('unauthenticated-state')?.classList.add('hidden');
-          document.getElementById('authenticated-state')?.classList.remove('hidden');
-          
-          // Mostrar nombre de usuario
-          const userNameElement = document.getElementById('user-name');
-          if (userNameElement && userData.name) {
-            // Mostrar solo el primer nombre
-            const firstName = userData.name.split(' ')[0];
-            userNameElement.textContent = firstName;
+          // Asignar color según tipo de usuario
+          if (userType.includes('Premium') || userType.includes('Pro')) {
+            userTypeElement.classList.remove('bg-gray-100', 'text-gray-600');
+            userTypeElement.classList.add('bg-yellow-100', 'text-yellow-800');
           }
-        } catch (error) {
-          console.error('Error parsing client data:', error);
+        }
+        
+        // Actualizar información en el dropdown
+        if (dropdownUserName) {
+          dropdownUserName.textContent = userData.name;
+        }
+        
+        if (dropdownUserEmail && userData.email) {
+          dropdownUserEmail.textContent = userData.email;
         }
       }
       
