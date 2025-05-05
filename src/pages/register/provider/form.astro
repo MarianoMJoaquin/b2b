@@ -1,0 +1,305 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout title="Registro de Proveedor | B2B Connect">
+  <Header />
+  
+  <main class="pt-32 pb-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+          Crear Cuenta de Proveedor
+        </h1>
+        
+        <p class="text-gray-600 text-center mb-8">
+          Completa tus datos para conectar con empresas que buscan tus productos o servicios
+        </p>
+        
+        <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+          <form id="provider-registration-form">
+            <div class="space-y-5">
+              <!-- Datos de la empresa -->
+              <div>
+                <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Nombre de la Empresa</label>
+                <input 
+                  type="text" 
+                  id="company" 
+                  name="company" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="Nombre de tu empresa"
+                >
+              </div>
+              
+              <!-- Datos personales -->
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre y Apellido</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="Tu nombre completo"
+                >
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="ejemplo@empresa.com"
+                >
+              </div>
+              
+              <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  required
+                  minlength="8"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="Mínimo 8 caracteres"
+                >
+              </div>
+              
+              <div>
+                <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar Contraseña</label>
+                <input 
+                  type="password" 
+                  id="confirm_password" 
+                  name="confirm_password" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="Repite tu contraseña"
+                >
+              </div>
+              
+              <!-- Planes de suscripción -->
+              <div class="pt-3">
+                <h3 class="text-lg font-medium text-gray-900 mb-3">Selecciona tu plan</h3>
+                <div class="space-y-3">
+                  <label class="relative flex border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 subscription-option">
+                    <div class="flex items-start">
+                      <input type="radio" name="subscription" value="free" class="mt-1 h-4 w-4 text-blue-600 border-gray-300" checked>
+                      <div class="ml-3">
+                        <span class="block font-medium text-gray-900">Plan Básico - Gratis</span>
+                        <span class="block text-sm text-gray-500">Perfil básico y visibilidad limitada</span>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <label class="relative flex border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 subscription-option">
+                    <div class="flex items-start">
+                      <input type="radio" name="subscription" value="premium" class="mt-1 h-4 w-4 text-blue-600 border-gray-300">
+                      <div class="ml-3">
+                        <span class="block font-medium text-gray-900">Plan Premium - $29.99/mes</span>
+                        <span class="block text-sm text-gray-500">Acceso completo a todos los clientes potenciales</span>
+                        <span class="inline-flex items-center mt-1 px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          Recomendado
+                        </span>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <label class="relative flex border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 subscription-option">
+                    <div class="flex items-start">
+                      <input type="radio" name="subscription" value="pro" class="mt-1 h-4 w-4 text-blue-600 border-gray-300">
+                      <div class="ml-3">
+                        <span class="block font-medium text-gray-900">Plan Pro - $49.99/mes</span>
+                        <span class="block text-sm text-gray-500">Todo lo anterior + prioridad en las búsquedas</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Términos y condiciones -->
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input 
+                    type="checkbox" 
+                    id="terms" 
+                    name="terms" 
+                    required
+                    class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  >
+                </div>
+                <div class="ml-3 text-sm">
+                  <label for="terms" class="text-gray-600">
+                    Acepto los <a href="/terms" class="text-blue-600 hover:underline">Términos y Condiciones</a> y la <a href="/privacy" class="text-blue-600 hover:underline">Política de Privacidad</a>
+                  </label>
+                </div>
+              </div>
+              
+              <div>
+                <button 
+                  type="submit" 
+                  id="register-button"
+                  class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg transition-colors hover:bg-blue-700 shadow-md"
+                >
+                  Registrarme
+                </button>
+              </div>
+            </div>
+          </form>
+          
+          <div class="text-center mt-6">
+            <p class="text-gray-600 text-sm">
+              ¿Ya tienes una cuenta? <a href="/login" class="text-blue-600 hover:underline">Iniciar sesión</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('provider-registration-form');
+    const registerButton = document.getElementById('register-button');
+    
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Validar contraseñas
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+          alert('Las contraseñas no coinciden');
+          return;
+        }
+        
+        // Simular registro
+        registerButton.disabled = true;
+        registerButton.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span> Registrando...';
+        
+        // Recopilar datos del formulario
+        const selectedPlan = document.querySelector('input[name="subscription"]:checked').value;
+        const formData = {
+          company: document.getElementById('company').value,
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          plan: selectedPlan,
+          // No guardamos la contraseña por seguridad
+        };
+        
+        // Guardar en sessionStorage para usar en siguientes pasos
+        sessionStorage.setItem('providerData', JSON.stringify(formData));
+        
+        // Mostrar un mensaje u opciones diferentes dependiendo del plan elegido
+        setTimeout(() => {
+          // Actualizar el estado de autenticación en el Header
+          const unauthenticatedState = document.getElementById('unauthenticated-state');
+          const authenticatedState = document.getElementById('authenticated-state');
+          const userNameElement = document.getElementById('user-name');
+          
+          if (unauthenticatedState && authenticatedState) {
+            unauthenticatedState.classList.add('hidden');
+            authenticatedState.classList.remove('hidden');
+            
+            if (userNameElement) {
+              // Mostrar solo el primer nombre
+              const firstName = formData.name.split(' ')[0];
+              userNameElement.textContent = firstName;
+            }
+          }
+          
+          // Mostrar mensaje de éxito con diferentes opciones según el plan
+          form.innerHTML = `
+            <div class="text-center p-4">
+              <div class="mb-4 text-green-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">¡Registro exitoso!</h4>
+              ${selectedPlan === 'free' ? `
+                <p class="text-gray-600 mb-6">Tu cuenta ha sido creada con el plan Básico (Gratuito). Tendrás acceso limitado a las funcionalidades premium.</p>
+              ` : `
+                <p class="text-gray-600 mb-6">Tu cuenta ha sido creada con el plan ${selectedPlan === 'premium' ? 'Premium' : 'Pro'}. ¡Gracias por tu confianza!</p>
+                <p class="text-sm text-green-600 mb-6">Se procesará el pago al finalizar la configuración de tu perfil.</p>
+              `}
+              <div id="redirect-message" class="text-sm text-gray-500 mb-4">Redirigiendo en <span id="countdown">3</span> segundos...</div>
+            </div>
+          `;
+          
+          // Contador regresivo
+          let count = 3;
+          const countdownElement = document.getElementById('countdown');
+          const countdownInterval = setInterval(() => {
+            count--;
+            if (countdownElement) {
+              countdownElement.textContent = count.toString();
+            }
+            if (count <= 0) {
+              clearInterval(countdownInterval);
+              // Redirigir al primer paso
+              window.location.href = '/register/provider/step1';
+            }
+          }, 1000);
+        }, 1500);
+      });
+    }
+    
+    // Realzar la opción seleccionada
+    const subscriptionOptions = document.querySelectorAll('.subscription-option');
+    subscriptionOptions.forEach(option => {
+      const radioInput = option.querySelector('input[type="radio"]');
+      
+      // Establecer estado inicial
+      if (radioInput.checked) {
+        option.classList.add('border-blue-500', 'bg-blue-50');
+      }
+      
+      // Actualizar al cambiar
+      radioInput.addEventListener('change', () => {
+        subscriptionOptions.forEach(opt => {
+          opt.classList.remove('border-blue-500', 'bg-blue-50');
+        });
+        
+        if (radioInput.checked) {
+          option.classList.add('border-blue-500', 'bg-blue-50');
+        }
+      });
+    });
+
+    // Validación en tiempo real para las contraseñas
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+    
+    if (confirmPassword) {
+      confirmPassword.addEventListener('input', () => {
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.setCustomValidity('Las contraseñas no coinciden');
+        } else {
+          confirmPassword.setCustomValidity('');
+        }
+      });
+      
+      password.addEventListener('input', () => {
+        if (confirmPassword.value !== '') {
+          if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity('Las contraseñas no coinciden');
+          } else {
+            confirmPassword.setCustomValidity('');
+          }
+        }
+      });
+    }
+  });
+</script>

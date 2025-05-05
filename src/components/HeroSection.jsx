@@ -23,11 +23,8 @@ export default function HeroSection() {
               La plataforma B2B que simplifica la búsqueda de proveedores de calidad para tu negocio. Encuentra los mejores servicios y productos para tu empresa.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="/register?type=client" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
-                Buscar Proveedores
-              </a>
-              <a href="/register?type=provider" className="px-8 py-4 bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors shadow-md">
-                Convertirme en Proveedor
+              <a href="/register" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl">
+                Comenzar Ahora
               </a>
             </div>
             <div className="mt-12">

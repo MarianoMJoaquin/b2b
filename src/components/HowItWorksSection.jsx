@@ -13,7 +13,7 @@ const steps = [
   },
   {
     number: "03",
-    title: "Conecta con proveedores",
+    title: "Conecta con proveedores o clientes",
     description: "Recibe propuestas de proveedores verificados que cumplen con tus requisitos."
   },
   {

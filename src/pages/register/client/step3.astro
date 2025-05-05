@@ -276,9 +276,18 @@ const mockProviders = [
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar que el usuario viene del formulario de registro
+    const clientData = sessionStorage.getItem('clientData');
+    if (!clientData) {
+      // Si no tiene datos de registro, redirigir al formulario
+      window.location.href = '/register/client/form';
+      return;
+    }
+    
     // Verificar que venimos del paso anterior
     if (!sessionStorage.getItem('selectedIndustries') || !sessionStorage.getItem('selectedScope')) {
       window.location.href = '/register/client/step1';
+      return;
     }
     
     const unlockButton = document.getElementById('unlock-button');

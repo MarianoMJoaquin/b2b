@@ -2,83 +2,103 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+
+// Lista de rubros disponibles
+const industries = [
+  { id: "tech", name: "Tecnología", icon: "computer" },
+  { id: "food", name: "Alimentación", icon: "restaurant" },
+  { id: "construction", name: "Construcción", icon: "construction" },
+  { id: "transport", name: "Transporte", icon: "local_shipping" },
+  { id: "health", name: "Salud", icon: "medical_services" },
+  { id: "education", name: "Educación", icon: "school" },
+  { id: "retail", name: "Comercio Minorista", icon: "store" },
+  { id: "manufacturing", name: "Manufactura", icon: "precision_manufacturing" },
+  { id: "finance", name: "Finanzas", icon: "attach_money" },
+  { id: "energy", name: "Energía", icon: "bolt" },
+  { id: "agriculture", name: "Agricultura", icon: "agriculture" },
+  { id: "entertainment", name: "Entretenimiento", icon: "sports_esports" }
+];
 ---
 
-<Layout title="Registro de Proveedor | B2B Connect">
+<Layout title="Configura tu perfil | Registro Proveedor B2B Connect">
   <Header />
   
   <main class="pt-32 pb-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
+        <!-- Indicador de progreso -->
+        <div class="mb-12">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                1
+              </div>
+              <div class="ml-3 text-blue-600 font-semibold">Rubros</div>
+            </div>
+            <div class="flex-grow mx-4 h-1 bg-gray-200"></div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold">
+                2
+              </div>
+              <div class="ml-3 text-gray-500">Ubicación</div>
+            </div>
+            <div class="flex-grow mx-4 h-1 bg-gray-200"></div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold">
+                3
+              </div>
+              <div class="ml-3 text-gray-500">Clientes</div>
+            </div>
+          </div>
+        </div>
+        
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-          Registro como Proveedor
+          ¿Qué productos o servicios ofreces?
         </h1>
         
-        <p class="text-gray-600 text-lg mb-12 text-center max-w-3xl mx-auto">
-          Gracias por tu interés en unirte a nuestra red de proveedores. En este momento estamos trabajando en esta sección. 
-          Pronto estará disponible el proceso de registro completo.
+        <p class="text-gray-600 text-lg mb-8 text-center">
+          Selecciona los rubros en los que tu empresa opera para conectar con los clientes adecuados.
         </p>
         
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center mb-10 shadow-sm">
-          <div class="w-20 h-20 mx-auto mb-6 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
+        <form id="industries-form" class="mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {industries.map(industry => (
+              <label class="bg-white border border-gray-200 rounded-lg p-4 flex items-center cursor-pointer hover:shadow-md transition-shadow industry-card">
+                <input 
+                  type="checkbox" 
+                  name="industries" 
+                  value={industry.id} 
+                  class="hidden industry-checkbox"
+                >
+                <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3">
+                  <span class="material-symbols-outlined">
+                    {industry.icon}
+                  </span>
+                </div>
+                <span class="text-gray-800 flex-grow">{industry.name}</span>
+                <span class="checkmark ml-auto opacity-0 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              </label>
+            ))}
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Próximamente</h3>
-          <p class="text-gray-600 mb-8">
-            Estamos finalizando esta sección para ofrecerte la mejor experiencia posible como proveedor. 
-            Puedes dejarnos tus datos para notificarte cuando esté disponible.
-          </p>
           
-          <form class="max-w-md mx-auto">
-            <div class="mb-4">
-              <input 
-                type="text" 
-                placeholder="Nombre de la empresa" 
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                required
-              />
-            </div>
-            <div class="mb-4">
-              <input 
-                type="email" 
-                placeholder="Email de contacto" 
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                required
-              />
-            </div>
-            <div class="mb-6">
-              <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-600">
-                <option value="" disabled selected>Selecciona tu industria principal</option>
-                <option value="tech">Tecnología</option>
-                <option value="food">Alimentación</option>
-                <option value="construction">Construcción</option>
-                <option value="transport">Transporte</option>
-                <option value="health">Salud</option>
-                <option value="education">Educación</option>
-                <option value="retail">Comercio Minorista</option>
-                <option value="manufacturing">Manufactura</option>
-                <option value="finance">Finanzas</option>
-                <option value="energy">Energía</option>
-                <option value="agriculture">Agricultura</option>
-                <option value="entertainment">Entretenimiento</option>
-              </select>
-            </div>
+          <div class="text-center mt-12">
             <button 
-              type="submit" 
-              class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg transition-colors hover:bg-blue-700 shadow-sm"
+              id="next-button" 
+              type="button" 
+              disabled
+              class="px-8 py-4 bg-blue-600 text-white font-medium rounded-lg transition-colors shadow-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Notificarme cuando esté disponible
+              Continuar
             </button>
-          </form>
-        </div>
-        
-        <div class="text-center">
-          <a href="/" class="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg transition-colors hover:bg-blue-50">
-            Volver al Inicio
-          </a>
-        </div>
+            <p class="text-sm text-gray-500 mt-3" id="selection-message">
+              Selecciona al menos un rubro para continuar
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   </main>
@@ -88,34 +108,63 @@ import Footer from '../../../components/Footer.astro';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
+    // Verificar que el usuario viene del formulario de registro
+    const providerData = sessionStorage.getItem('providerData');
+    if (!providerData) {
+      // Si no tiene datos de registro, redirigir al formulario
+      window.location.href = '/register/provider/form';
+      return;
+    }
+  
+    // Cargar Material Icons si no está ya cargado
+    if (!document.querySelector('link[href*="Material+Symbols+Outlined"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+      document.head.appendChild(link);
+    }
+
+    const form = document.getElementById('industries-form');
+    const nextButton = document.getElementById('next-button');
+    const selectionMessage = document.getElementById('selection-message');
+    const checkboxes = document.querySelectorAll('.industry-checkbox');
     
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const card = checkbox.closest('.industry-card');
+        const checkmark = card.querySelector('.checkmark');
         
-        // Simular envío del formulario
-        const submitButton = form.querySelector('button[type="submit"]');
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span> Enviando...';
-          
-          setTimeout(() => {
-            // Mostrar mensaje de éxito
-            form.innerHTML = `
-              <div class="text-center p-4">
-                <div class="mb-4 text-green-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h4 class="text-xl font-semibold text-gray-900 mb-2">¡Gracias por tu interés!</h4>
-                <p class="text-gray-600">Te notificaremos cuando el registro de proveedores esté disponible.</p>
-              </div>
-            `;
-          }, 1500);
+        if (checkbox.checked) {
+          card.classList.add('border-blue-500', 'bg-blue-50');
+          checkmark.classList.remove('opacity-0');
+        } else {
+          card.classList.remove('border-blue-500', 'bg-blue-50');
+          checkmark.classList.add('opacity-0');
+        }
+        
+        // Actualizar el estado del botón
+        const selectedCount = document.querySelectorAll('.industry-checkbox:checked').length;
+        nextButton.disabled = selectedCount === 0;
+        
+        if (selectedCount === 0) {
+          selectionMessage.textContent = 'Selecciona al menos un rubro para continuar';
+        } else if (selectedCount === 1) {
+          selectionMessage.textContent = '1 rubro seleccionado';
+        } else {
+          selectionMessage.textContent = `${selectedCount} rubros seleccionados`;
         }
       });
-    }
+    });
+    
+    nextButton.addEventListener('click', () => {
+      const selectedIndustries = Array.from(document.querySelectorAll('.industry-checkbox:checked'))
+        .map(checkbox => checkbox.value);
+      
+      // Guardar selecciones en sessionStorage
+      sessionStorage.setItem('providerIndustries', JSON.stringify(selectedIndustries));
+      
+      // Redirigir al siguiente paso
+      window.location.href = '/register/provider/step2';
+    });
   });
 </script>

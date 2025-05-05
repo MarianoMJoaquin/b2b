@@ -109,6 +109,15 @@ const industries = [
 <script>
   // Añadir fuente Material Icons
   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar que el usuario viene del formulario de registro
+    const clientData = sessionStorage.getItem('clientData');
+    if (!clientData) {
+      // Si no tiene datos de registro, redirigir al formulario
+      window.location.href = '/register/client/form';
+      return;
+    }
+    
+    // Continuar con el código existente
     if (!document.querySelector('link[href*="Material+Symbols+Outlined"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
